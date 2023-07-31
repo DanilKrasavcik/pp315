@@ -12,6 +12,7 @@ import java.util.List;
 
 
 @Service
+@Transactional(readOnly = true)
 public class UserServiceImp implements UserService{
 
     private UserRepository userRepository;
@@ -24,7 +25,7 @@ public class UserServiceImp implements UserService{
         this.passwordEncoder = passwordEncoder;
     }
 
-    @Transactional(readOnly = true)
+
     @Override
     public List<User> listUsers() {
         return userRepository.findAll();
@@ -51,7 +52,6 @@ public class UserServiceImp implements UserService{
     }
 
     @Override
-    @Transactional
     public User getById(Long id) {
         return userRepository.findById(id).get();
     }
