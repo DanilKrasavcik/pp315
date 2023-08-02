@@ -4,7 +4,7 @@ const edit = document.getElementsByClassName('btn-primary')
 fetch("http://localhost:8080/api/user").then((response => response.json())).then((user => authUser(user)))
 function adminPage () {
     let tr = ''
-    fetch("http://localhost:8080/api/users").then((response => response.json()))
+    fetch("http://localhost:8080/api/admin/users").then((response => response.json()))
         .then((users => {
             for (let user of users) {
                 tr += `<tr><td>${user.id}</td>

@@ -3,7 +3,7 @@ const deleteModalClose = document.getElementById('deleteModalClose')
 
 
 function deleteModal(id) {
-    fetch("http://localhost:8080/api/" + id).then(response => response.json())
+    fetch("http://localhost:8080/api/admin/" + id).then(response => response.json())
         .then(deleteUser => {
             formDeleteUser.idDelete.value = deleteUser.id
             formDeleteUser.usernameDelete.value = deleteUser.username
@@ -23,7 +23,7 @@ formDeleteUser.addEventListener('submit', deleteUser => {
         method: 'DELETE'
     }
 
-    fetch("http://localhost:8080/api/"+ formDeleteUser.idDelete.value,method).then(() => {
+    fetch("http://localhost:8080/api/admin/"+ formDeleteUser.idDelete.value,method).then(() => {
         adminPage();
         deleteModalClose.click();
     })

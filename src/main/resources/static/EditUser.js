@@ -3,7 +3,7 @@ let editRole = document.querySelector('#roleEdit').selectedOptions
 const editModalClose = document.getElementById('editModalClose')
 
 function editModal(id) {
-    fetch("http://localhost:8080/api/" + id).then(response => response.json())
+    fetch("http://localhost:8080/api/admin/" + id).then(response => response.json())
         .then(editUser => {
             formEditUser.idEdit.value = editUser.id
             formEditUser.usernameEdit.value = editUser.username
@@ -36,7 +36,7 @@ function editModal(id) {
                 roles:roles
             })
         }
-        fetch("http://localhost:8080/api/"+ formEditUser.idEdit.value,method).then(() => {
+        fetch("http://localhost:8080/api/admin/"+ formEditUser.idEdit.value,method).then(() => {
             adminPage();
             editModalClose.click();
         })

@@ -10,7 +10,7 @@ import ru.kata.spring.boot_security.demo.model.User;
 
 @RestController
 @RequestMapping("/api/user")
-public class MyRestControllerUser {
+public class UserRestController {
 
     @GetMapping
     public ResponseEntity<User> getAUthUser(@AuthenticationPrincipal User user) {
